@@ -1,1 +1,6 @@
 Test the file
+Test the file
+
+Test the file
+
+Adding new line
