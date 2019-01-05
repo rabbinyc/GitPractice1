@@ -1,0 +1,38 @@
+Learn Simple Java Program:
+
+public class FirstJavaProgram {
+  public static void main(String[] args){
+    System.out.println("This is my first program in java");
+  }//End of main
+}//End of FirstJavaProgram Class
+
+Output: This is my first program in java
+
+
+4 main concepts of Object Oriented programming are:
+
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+
+int num;
+Similarly we can assign the values to the variables while declaring them, like this:
+
+char ch = 'A';
+int number = 100;
+or we can do it like this:
+
+char ch;
+int number;
+...
+ch = 'A';
+number  = 100;
+
+Variables naming convention in java
+1) Variables naming cannot contain white spaces, for example: int num ber = 100; 
+is invalid because the variable name has space in it.
+2) Variable name can begin with special characters such as $ and _
+3) As per the java coding standards the variable name should begin with a lower case letter, for example int number; 
+For lengthy variables names that has more than one words do it like this: int smallNumber; int bigNumber; (start the second word with capital letter).
+4) Variable names are case sensitive in Java.
