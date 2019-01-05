@@ -1,0 +1,5 @@
+What Is SIT Testing 
+
+System integration testing (SIT) is a high-level software testing process 
+in which testers verify that all related systems 
+maintain data integrity and can operate in coordination with other systems in the same environment.
