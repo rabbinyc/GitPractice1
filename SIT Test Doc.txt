@@ -3,3 +3,19 @@ What Is SIT Testing
 System integration testing (SIT) is a high-level software testing process 
 in which testers verify that all related systems 
 maintain data integrity and can operate in coordination with other systems in the same environment.
+
+
+Types of SIT:
+
+There are two major approaches to System Integration Testing: top-down integration approach and bottom-up integration approach.
+
+Top-down Integration Approach: 
+Here modules are integrated by moving downwards in hierarchy, 
+where the main module is at the top. In a top-down approach if lower modules are not ready a dummy 
+modules called a stub is used for testing. A stub acts as the module during the test. Stubs have the minimum 
+functionality required to be used while testing the ‘above’ module.
+
+
+Bottom-up Integration Approach: 
+Here modules are combined and started to test at very low level. 
+If the top level modules are not ready then drivers are used for testing. A driver is a program specially used for testing.
