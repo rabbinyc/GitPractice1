@@ -4,18 +4,29 @@ System integration testing (SIT) is a high-level software testing process
 in which testers verify that all related systems 
 maintain data integrity and can operate in coordination with other systems in the same environment.
 
+NOW we are looking JAVA programming
 
-Types of SIT:
+a) if statement
+b) nested if statement
+c) if-else statement
+d) if-else-if statement
 
-There are two major approaches to System Integration Testing: top-down integration approach and bottom-up integration approach.
+If statement
+If statement consists a condition, followed by statement or a set of statements as shown below:
 
-Top-down Integration Approach: 
-Here modules are integrated by moving downwards in hierarchy, 
-where the main module is at the top. In a top-down approach if lower modules are not ready a dummy 
-modules called a stub is used for testing. A stub acts as the module during the test. Stubs have the minimum 
-functionality required to be used while testing the ‘above’ module.
+Example of if statement
+public class IfStatementExample {
 
+   public static void main(String args[]){
+      int num=70;
+      if( num < 100 ){
+	  /* This println statement will only execute,
+	   * if the above condition is true
+	   */
+	  System.out.println("number is less than 100");
+      }
+   }
+}
+Output:
 
-Bottom-up Integration Approach: 
-Here modules are combined and started to test at very low level. 
-If the top level modules are not ready then drivers are used for testing. A driver is a program specially used for testing.
+number is less than 100
