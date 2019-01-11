@@ -1,0 +1,108 @@
+
+
+ https://hackernoon.com/cryptographic-hashing-c25da23609c3
+ 
+ https://www.securityinnovationeurope.com/blog/page/whats-the-difference-between-hashing-and-encrypting
+ 
+ 
+ 
+Hash functions compute a digest of a message which is a short, fixed-length bitstring. Any piece of data can be hashed, no matter its size or type. For a particular message, the message digest, or hash value, can be seen as the fingerprint of a message. Hash functions yield an unique string of text. In hashing algorithm,the hash function always produces the same length of data regardless of the data’s size, type, or length. Hash functions do not have a key like other cryptosystems. hash functions can be used in cryptography  many different ways. For example,hash functions are an essential part of digital signature schemes and message authentication codes. Hash functions are also widely used for other cryptographic applications such as, storing of password hashes or key derivation. A hash is designed to act as a one-way function.
+
+Hashing is a mathematical operation that is easy to perform, but extremely difficult to reverse. The difference between hashing and encryption is that encryption can be reversed, or decrypted, using a specific key. The most widely used hashing functions are MD5, SHA1 and SHA-256. Some hashing processes are significantly harder to crack than others. For example, SHA1 is easier to crack than password hashing function bcrypt.
+
+
+ Hashing is a method of cryptography that converts any form of data into a unique string of text. Any piece of data can be hashed, no matter its size or type. In traditional hashing, regardless of the data’s size, type, or length, the hash that any data produces is always the same length. A hash is designed to act as a one-way function. you can put data into a hashing algorithm and get a unique string, but if you come upon a new hash, you cannot decipher the input data it represents. A unique piece of data will always produce the same hash.
+ 
+ 
+ Hash value will vary widely with small variations in input. From the hash value, it's impossible to turn a hash back into its original string.
+ 
+ 
+ Hash is not the same as encryption. Encryption algorithms use key to encrypt and decrypt the message applying many cryptographic techniques. Encryption should only ever be used over hashing when it is a necessity to decrypt the resulting message. For example, if you were trying to send secure messages to someone on the other side of the world, you would need to use encryption rather than hashing, as the message is no use to the receiver if they cannot decrypt it.
+ 
+ If the raw value doesn't need to be known for the application to work correctly, then hashing should always be used because it is more secure application. For example, password verification is an example of hash function.
+ 
+ The cybersecurity industry now uses a mechanism called ‘salting’ which includes adding random data to a password before hashing it, and then storing that ‘salt value’ with the hash. 
+ 
+ 
+ MD5 is the most widely known hashing function. It produces a 16-byte hash value, usually expressed as a 32 digit headecimal number. Recently a few vulnerabilities have been discovered in MD5. There are three different SHA algorithms -- SHA-0, SHA-1, and SHA-2. SHA-1 is the most commonly used SHA algorithm, and produces a 20-byte hash value. SHA-2 consists of a set of 6 hashing algorithms, and is considered the strongest. SHA-256 or above is recommended for situations where security is vital. SHA-256 produces 32-byte hash values.
+ 
+ Confidentiality, Integrity, and Authentication (CIA) is the key concern for network and data security. Hashing is a process to maintain integrity of data 
+ 
+ 
+ https://security.stackexchange.com/questions/134100/difference-between-ocsp-crl-and-cdp
+ 
+ certificate revocation list (CRL)
+ The certificate revocation list (CRL) is a list of revoked certificates. It does not contain the certificate itself but mainly the serial number. It is signed directly or indirectly by the CA which issued these certificates. The CRL can be very big because it can contain lots of revocations. To check if a certificate is revoked the client must download the list (or have a recent copy) and then lookup the serial number of the current certificate in the list. If it is not found there it is not revoked.
+
+The location of the CRL for a specific certificate (i.e. where to download) is specified in the certificate itself as CRL distribution point (CDP).
+
+Online Certificate Status Protocol (OCSP)
+Because CRL's contain information for lots of certificates they are often large and thus not suitable for a fast revocation check. The Online Certificate Status Protocol (OCSP) instead checks only a specific certificate and asks the OCSP responder if this certificate was revoked or not. The OCSP responder quickly returns this specific information which is again directly or indirectly signed by the issuer of the certificate. For even faster revocation check the server can regularly retrieve a current OCSP response and send it to the client within the TLS handshake. With this "OCSP stapling" the client does not need to explicitly ask the OCSP responder for revocation information because the client has already these information.
+
+
+Online Certificate Status Protocol (OCSP) has largely replaced the use of CRLs to check SSL Certificate revocation. CRLs are updated periodically every 5-14 days which potentially leaving the attack surface open until the next CRL update. The CRL is not checked for OV or DV based certificates. If the client is unable to download the CRL, then by default the client will trust the certificate whic can be a security threat. On the otherhand, the main advantage to OCSP is that because the client can query the status of a single certificate, rather then having to download and parse an entire list, there is much less overhead on the client and network. 
+
+There is disadvantage with OCSP, OCSP Requests are sent for each certificate. Because of this there can be a huge over head on the OCSP Responder or CA for high traffic websites. The OCSP is not enforced for OV or DV based certificates. OCSP only check for EV certificates.
+
+Explain what the fundamental issue for symmetric key distribution is?
+
+
+Traditionally, symmetric encryption suffered one enormous shortcoming – it was necessary for either the sender or the recipient to create a key and then send it to the other party. While the key was in transit, it could be stolen or copied by a third party who would then be able to decrypt any ciphertexts encrypted with that key.
+
+Another problem is that a large number of key pairs are needed between communicating parties. This quickly becomes difficult to manage the more there are. This can be calculated as n(n-1)/2 where n is the number of communicating parties.
+
+For example, if ten parties want to communicate with each other securely they would need 45 different key pairs: 10(10-1)/2 = 45. This would increase to 4,950 if there were 100 communicating parties!
+
+This problem, called the key distribution problem, affected anyone wishing to use encryption until the 1970s when a method of distributing keys without actually sending the keys themselves was developed independently by GCHQ in the United Kingdom and Whitfield Diffie and Martin Hellman in the United States. The British discovery was kept secret for many years, so today the solution is known as the Diffie–Hellman key exchange method.
+
+Symmetric encryption methods have the advantage that encryption and decryption is extremely fast, making them ideal for transmitting large amounts of secure data. In the video you saw how key distribution was achieved between two people, Alice and Bob.
+
+
+Only works for small networks which are relatively static
+
+There are n (n-1) ≈ n2 keys in the system
+ There are n (n-1)/2 key pairs
+
+If a new user joins the network, new keys have to be transported via secure channels
+
+
+Example: mid-size company with 750 employees
+ 750 x 749 = 561,750 keys must be distributed securely
+
+
+
+a = 11
+A = ga mod p = 1911 mod 71 = 64
+b = 13
+B = gb mod p = 1913 mod 71 = 29
+Alice and Bob exchange A and B in view of Carl
+keya = B a mod p = 2911 mod 71 = 43
+keyb = A B mod p = 6413 mod 71 = 43
+
+
+
+
+Public Key Infrastructure(PKI) is a back-end cybersecurity measure that is described as a “set of rules, policies and procedures needed to create, manage, distribute, use, store and revoke digital certificates and manage public-key encryption.
+
+
+Public Key Infrastructure (PKI) is a back-end cybersecurity mechanism that is described as a “set of rules, policies and procedures needed to create, manage, distribute, use, store and revoke digital certificates and manage public-key encryption.” PKI is based on asymmetric cryptography and is widely used today to secure each and every communication over the Internet. PKI is a must for everyday business such as online shopping/trading, Online financial transactions and exchanging emails and other messsages. 
+
+There are various componenets that make Public Key Infrastructure very secure such as Digital Certificate, Revocation Services, Certificate Database, Root Certificate Authority (CA), Registration Authority (RA),Certificate Policy.
+
+CA issues certificate to a client and assist other users to verify the certificate validity. The CA takes responsibility for identifying correctly the identity of the client asking for a certificate to be issued, and ensures that the information contained within the certificate is correct and digitally signs it
+
+
+Revocation services are servers that publish updated Certificate Revocation Lists (CRLs) or Online Certificate Status Protocol (OCSP) responders that use CRLs and respond to revocation lookup checks for devices that cannot process CRLs themselves. CA revokes the certificate issued due to some reason such as compromise of private key by user or loss of trust in the client. After revocation, CA maintains the list of all revoked certificate that is available to the environment.
+
+aforementioned
+
+
+The chain of trust of a certificate chain is an ordered list of certificates, containing an end-user subscriber certificate and intermediate certificates (that represents the intermediate CA), that enables the receiver to verify that the sender and all intermediate certificates are trustworthy.
+
+
+In SSL transaction, a chain of trust is established by validating each component of hardware and software from the end entity up to the root certificate. chain of trust ensures that only trusted software and hardware can be used while still retaining authencity. 
+
+end-entity certificate
+
+The top of the chain, the root certificate, must be issued by a trusted Certificate Authority. Also, there are Registration Authority (RA) and Validation Authority (VA) play roles to establish the chain of trust
+
